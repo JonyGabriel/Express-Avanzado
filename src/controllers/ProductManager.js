@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { promises as fs } from 'fs'
 import { nanoid } from "nanoid";
 
@@ -7,7 +6,6 @@ class ProductManager {
     this.path = "./src/models/products.json"
   }
   
- 
 
   readProducts = async () => {
     let products = await fs.readFile(this.path, "utf-8");
@@ -15,8 +13,7 @@ class ProductManager {
   };
 
   writeProducts = async (product) => {
-  let products = await fs.writeFile(this.path, JSON.stringify(product))
-
+  await fs.writeFile(this.path, JSON.stringify(product))
   };
   
   exist = async (id) => {
